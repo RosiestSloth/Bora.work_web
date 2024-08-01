@@ -4,14 +4,17 @@ function linkBora () {
   window.open('https://bora.work/map', '_blank');
 };
 
-//Pega as horas atuais do servidor e escreve no HTML
+function LinkLuma() {
+  window.open('https://luma-dev.com/', '_blank')
+}
 
+//Pega as horas e minutos atuais do servidor e escreve no HTML
 const Horas = () => {
-  const horas = new Date().getHours().toString()
-  const minutos = new Date().getMinutes()
+  const horas = new Date().getHours().toString().padStart(2, '0')
+  const minutos = new Date().getMinutes().toString().padStart(2, '0')
   return (
-    <p className='text-white mr-4'>
-      {horas}:{minutos}
+    <p className='text-white/50 mr-5'>
+      {horas}:{minutos} BRT
     </p>
   )
 }
@@ -19,35 +22,51 @@ const Horas = () => {
 export default function App() {
   return (
     <main>
-      <header className='backdrop-blur-lg bg-white/10 border-white/20 rounded-8 p-1 m-4 shadow- shadow-black'>
+      <header className='backdrop-blur-lg bg-white/10 border-white/20 rounded-8 p-1 m-4 shadow-black'>
         <nav className='flex items-center m-2'>
-          <button onClick={linkBora} className='mr-auto hover:bg-white/10 shadow-mg
-          d hover:shadow-black rounded-8'>
+          <button onClick={linkBora} className='mr-auto  shadow-mg rounded-8 transition duration-300 ease-in-out transform hover:bg-white/20'>
             <img className='size-10' src='/logo-bora.png' alt='Logo do bora'/>
           </button >
             <Horas />
-          <button className='text-white/50 hover:text-white hover:bg-white/10 rounded-8'>
+          <button className='text-white/50 hover:text-white rounded-8 mx-4 w-10 transition duration-300 ease-in-out transform hover:text-white' onClick={LinkLuma}>
             <p>
-              Explorar
+              Explorar ↗️
+            </p>  
+          </button>
+          <button className='text-white rounded-12 bg-white/10 h-8 w-10 transition duration-300 ease-in-out transform hover:bg-white/40'>
+            <p>
+              Entrar
             </p>
-            <img src='/seta-link.svg' className='size-4'/>
           </button>
         </nav>
       </header>
       <section>
-        <div className=''>
-          <h2 className=''>
+        {/*Container do texto*/}
+        <div className="flex justify-center items-center h-screen p-4 mx-auto max-w-screen-lg">
+        <div className="flex flex-col justify-center mr-4">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-pink-100 to-orange-400 bg-clip-text text-transparent">
             Eventos encantadores começam aqui.
           </h2>
-          <p>
+          <p className="mt-4 max-w-xl text-white/50 text-justify">
             Crie uma página de evento, convide amigos e venda ingressos. Organize um evento memorável hoje.
           </p>
-          <button>
-          
-          </button>
         </div>
-        <video autoplay muted loop typeof='video/webm' src='/phone-dark.webm' className='size-80 ml-auto mr-3/6 mt-20'/>
+
+        {/* Contêiner do vídeo */}
+        <div className="flex-shrink-0">
+            <video
+            autoPlay
+            muted
+            loop
+            className="h-80 rounded-lg"
+            src="/phone-dark.webm"
+            type="video/webm"
+            />
+          </div>
+        </div>
+
+
       </section>
-    </main>
+  </main>
   );
 }
