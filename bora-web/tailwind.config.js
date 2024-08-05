@@ -8,12 +8,6 @@ module.exports = {
       backgroundImage: {
         'gradient-to-r': 'linear-gradient(to right, #ff7e5f, #feb47b)',
       },
-      backgroundClip: {
-        text: 'text',
-      },
-      textFillColor: {
-        transparent: 'transparent',
-      },
       colors: {
         'white': '#ffffff',
         'black': '#000000',
@@ -25,11 +19,18 @@ module.exports = {
       },
       width: {
         '10': '100px',
+        'footer': '100vw',
+      },
+      size: {
+        'video': '60vw',
       },
       height: {
         'max': 'auto',
       },
-    },
+      borderWidth: {
+        '1': '1px',
+      },
+    }
   },
   plugins: [
     function({ addUtilities }) {
@@ -45,4 +46,4 @@ module.exports = {
       });
     },
   ],
-}
+};
